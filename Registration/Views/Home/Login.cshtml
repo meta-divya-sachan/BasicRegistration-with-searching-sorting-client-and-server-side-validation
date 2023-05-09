@@ -1,0 +1,200 @@
+﻿@model Registration.uUser
+
+@{
+    ViewBag.Title = "Login";
+}
+<head>
+    <link href="~/CustomCSS/Register.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+
+    <script type="text/javascript">
+        /*    $(document).ready(function () {
+                $("#submit").click(function () {
+
+                });
+
+
+
+            });
+
+            function saveUser() {
+                var email = $(#txtEmail).val();
+                var password = $(#txtPassword).val();
+
+                var userObj = { Email: email, Password = password };
+
+
+                $.ajax
+            }
+
+
+        */
+    </script>
+    <style>
+        body {
+            background-color: #31708E;
+        }
+
+        #LoginFormLayout {
+            margin-top: 100px;
+            background-color: #31708E;
+        }
+
+            #LoginFormLayout #LoginForm {
+                background-color: #f7f9fb;
+                padding-top: 20px;
+                padding-left: 20px;
+                border-left: 1px solid #d5abab;
+                border-right: 1px solid #d5abab;
+                box-shadow: rgb(216, 211, 211) 5px 5px 2px 2px inset;
+            }
+
+        #LoginFormLayout #LoginForm h2 {  
+            text-align: center;
+            margin: 0px;
+            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+        }
+
+        #LoginFormLayout #LoginForm #email, #password {
+            background-color: #f7f9fb;
+            border-bottom: 2px solid grey;
+            border-inline-end: aqua;
+            border-top-color: transparent;
+            border-right-color: transparent;
+            border-left-color: transparent;
+        }
+           /* #password{
+                margin-top: 20px;
+            }*/
+    </style>
+</head>
+<body>
+
+    <div id="LoginFormLayout">
+
+        <div class="col-md-offset-3 col-md-6" id="LoginForm">
+            @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+            {
+                if (TempData["message"] != null)
+                {
+                    <h4> @TempData["message"].ToString()</h4>
+
+                }
+                <h2>Log in</h2>
+
+                <form class="form-horizontal">
+
+                    <div class="form-group">
+                        <div class="col-md-12 col-lg-offset-2">
+                            <div class="input-group">
+                                <span class="input-group-addon"> <i class="glyphicon glyphicon-envelope"> </i></span>
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @id = "email", @PlaceHolder = "Email" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+
+                    <div class="form-group">
+                        <div class="col-md-12 col-lg-offset-2">
+                            <div class="input-group">
+                                <span class="input-group-addon"> <i class="glyphicon glyphicon-lock"> </i></span>
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @id = "password", @PlaceHolder="Password"} })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+
+                    <div class="form-group">
+                        <div class="col-md-offset-5">
+                            <input type="submit" id="submit" value="Log in" class="btn btn-primary" />
+                        </div>
+
+                    </div>
+
+                </form>
+
+
+
+            }
+        </div>
+    </div>
+
+</body>
+@section scripts{
+
+    <script type="text/javascript">
+        $(function () {
+
+            $("#submit").click(function () {
+
+                toastr.success("Success log in !!!", "login")
+
+            });
+
+        });
+
+
+
+    </script>
+}
+
+
+
+
+
+@*@using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>uUser</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@

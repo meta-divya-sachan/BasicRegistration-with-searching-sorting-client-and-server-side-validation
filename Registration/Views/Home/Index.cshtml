@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@Html.BeginForm("Signup", "Home"){ 
+
+<div class="col-lg-10">
+    <h1>
+        Welcome , Please Sign Up!!
+    </h1>
+    <div class="col-lg-4">
+        <label> Please Enter Your Name :</label>
+        <input class="col-md-push-4" /> 
+    </div>
+    <div class="col-lg-4">
+        <label> Please Enter Your Email :</label>
+        <input class="col-md-push-4" />
+    </div>
+    <div class="col-lg-4">
+        <label> Please Enter Your Password :</label>
+        <input class="col-md-push-4" />
+    </div>
+    <br />
+    <div class="col-lg-1 text-left">
+        <button type="submit" class="bg-primary">Submit</button>
+    </div>
+</div>
+<div>
+    <a class="col-lg-2">
+        <i class="fa fa-home"> </i>
+    </a>
+</div>
+}
